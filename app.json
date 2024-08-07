@@ -13,14 +13,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.sashasteblevets.WeatherApp"
+      "bundleIdentifier": "com.sashasteblevets.weatherapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.sashasteblevets.WeatherApp"
+      "package": "com.sashasteblevets.weatherapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
