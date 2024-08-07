@@ -1,9 +1,16 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {View, StyleSheet, Text, TextInput} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import Button from "./main-screen-components/Button";
+import {NativeStackScreenProps} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../App";
 
-const HomeScreen: FC = () => {
+export type MainScreenProps = NativeStackScreenProps<RootStackParamList, "Main">;
+
+const MainScreen: FC<MainScreenProps> = (props: MainScreenProps) => {
+
+    const [input, setInput] = useState("")
+
     return (
         <View style={styles.container}>
             <Text style={{
@@ -12,7 +19,9 @@ const HomeScreen: FC = () => {
                 textAlign: 'center',
                 marginBottom: 10,
             }}>Місто</Text>
-            <TextInput style={{
+            <TextInput
+                onChangeText={text => setInput(text)}
+                style={{
                 borderWidth: 1,
                 fontSize: 20,
                 fontWeight: 'bold',
@@ -25,7 +34,7 @@ const HomeScreen: FC = () => {
                 marginTop: 15,
             }}>
                 <Button title="Пошук" onPress={() => {
-
+                    props.navigation.push("Weather", {city: input})
                 }} />
             </View>
 
@@ -43,4 +52,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default HomeScreen
+export default MainScreen
